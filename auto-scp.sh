@@ -36,11 +36,11 @@ do
 
   #DO WHAT WE WANT ACCORDING TO EVENTS
   if [ ${LIST[0]} = 'MODIFY' ]; then
-    scp $PORT ${LIST[1]}${LIST[2]} $USERNAME@$IP:$REMOTE_PATH_FILE
+    scp $PORT ${LIST[1]}${LIST[2]} $USERNAME@$IP:$REMOTE_PATH_FILE${LIST[1]}
   elif [ ${LIST[0]} = 'DELETE' ]; then
     echo "SOME FILE DELETED"
   elif [ ${LIST[0]} = 'CREATE' ]; then
-    scp $PORT ${LIST[1]}${LIST[2]} $USERNAME@$IP:$REMOTE_PATH_FILE
+    scp $PORT ${LIST[1]}${LIST[2]} $USERNAME@$IP:$REMOTE_PATH_FILE${LIST[1]}
   fi
   #HERE IS WHAT YOU WANT TO PUT FOR NOTIFICATION
   ( speaker-test -t sine -f 1000 > /dev/null)& pid=$! ; sleep 0.1s ; kill -9 $pid > /dev/null
